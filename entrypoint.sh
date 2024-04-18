@@ -25,6 +25,8 @@ fi
 export MOBSF_API_KEY="$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 64)"
 export MOBSF_URL="localhost:8000"
 
+sh /home/mobsf/Mobile-Security-Framework-MobSF/scripts/clean.sh
+
 cd /home/mobsf/Mobile-Security-Framework-MobSF
 python3 manage.py makemigrations 2&>> manage.out && \
 python3 manage.py makemigrations StaticAnalyzer 2&>> manage.out && \
