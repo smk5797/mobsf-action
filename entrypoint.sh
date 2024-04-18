@@ -34,7 +34,7 @@ python3 manage.py migrate 2&>> manage.out
 gunicorn -b 127.0.0.1:8000 "mobsf.MobSF.wsgi:application" --workers=1 --threads=10 --timeout=1800 &
 
 # Wait to start MobSF
-sleep 2
+sleep 5
 
 cd $GITHUB_WORKSPACE
 
@@ -55,6 +55,9 @@ echo "[/api/v1/upload] Received: FILE_NAME=${FILE_NAME}, HASH=${HASH}, SCAN_TYPE
 echo "[/api/v1/scan] Start the scan"
 curl -X POST --url ${MOBSF_URL}/api/v1/scan --data "scan_type=${SCAN_TYPE}&file_name=${FILE_NAME}&hash=${HASH}" -H "Authorization:${MOBSF_API_KEY}"
 echo "[/api/v1/scan] Scan finisehd"
+
+sleep 5
+
 
 # # Generate the json report.
 # echo "[/api/v1/report_json] Generate the json report"
