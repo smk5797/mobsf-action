@@ -14,7 +14,7 @@ USER root
 RUN apt-get update -y && \
   apt-get install -y curl jq
 
-USER mobsf
+# USER mobsf
 COPY LICENSE README.md /
 COPY "entrypoint.sh" "/home/mobsf/Mobile-Security-Framework-MobSF/entrypoint_github.sh"
 
