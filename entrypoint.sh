@@ -28,6 +28,8 @@ export MOBSF_URL="localhost:8000"
 
 cd /home/mobsf/Mobile-Security-Framework-MobSF
 
+sh ./scripts/clean.sh
+
 # python3 manage.py makemigrations 2&>> manage.out && \
 # python3 manage.py makemigrations StaticAnalyzer 2&>> manage.out && \
 # python3 manage.py migrate 2&>> manage.out
