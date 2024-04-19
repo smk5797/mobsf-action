@@ -28,7 +28,7 @@ export MOBSF_URL="localhost:8000"
 
 cd /home/mobsf/Mobile-Security-Framework-MobSF
 
-sh ./scripts/clean.sh
+sh ./scripts/clean.sh y
 
 # python3 manage.py makemigrations 2&>> manage.out && \
 # python3 manage.py makemigrations StaticAnalyzer 2&>> manage.out && \
@@ -48,10 +48,17 @@ cd $GITHUB_WORKSPACE
 # Upload the app to MobSF.
 echo "[/api/v1/upload] Upload the app to MobSF"
 RESPONSE=$(curl -F file=@${INPUT_FILE_NAME} ${MOBSF_URL}/api/v1/upload -H "Authorization:${MOBSF_API_KEY}")
+echo "RESPONSE : " ${RESPONSE}
+
 # use 'jq' to search the values by keys in the json response.
 FILE_NAME=$(echo "${RESPONSE}" | jq -r .file_name)
 HASH=$(echo "${RESPONSE}" | jq -r .hash)
 SCAN_TYPE=$(echo "${RESPONSE}" | jq -r .scan_type)
+echo "FILE_NAME : " ${FILE_NAME}
+echo "HASH : " ${HASH}
+echo "SCAN_TYPE : " ${SCAN_TYPE}
+
+
 # Trim spaces on the end of variables:
 FILE_NAME=${FILE_NAME%%*( )}
 HASH=${HASH%%*( )}
@@ -64,7 +71,6 @@ curl -X POST --url ${MOBSF_URL}/api/v1/scan --data "scan_type=${SCAN_TYPE}&file_
 echo "[/api/v1/scan] Scan finisehd"
 
 sleep 5
-
 
 # Generate the json report.
 echo "[/api/v1/report_json] Generate the json report"
