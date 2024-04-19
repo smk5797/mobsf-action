@@ -28,8 +28,11 @@ export MOBSF_URL="localhost:8000"
 
 cd /home/mobsf/Mobile-Security-Framework-MobSF
 
-echo '[INSTALL] Clean Up'
+echo '[INSTALL] clean.sh'
 bash scripts/clean.sh y
+
+echo '[INSTALL] java_wkhtmltopdf.sh'
+bash scripts/install_java_wkhtmltopdf.sh
 
 # python3 manage.py makemigrations 2&>> manage.out && \
 # python3 manage.py makemigrations StaticAnalyzer 2&>> manage.out && \
