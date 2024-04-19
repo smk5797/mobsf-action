@@ -27,9 +27,15 @@ export MOBSF_URL="localhost:8000"
 
 
 cd /home/mobsf/Mobile-Security-Framework-MobSF
-python3 manage.py makemigrations 2&>> manage.out && \
-python3 manage.py makemigrations StaticAnalyzer 2&>> manage.out && \
-python3 manage.py migrate 2&>> manage.out
+
+# python3 manage.py makemigrations 2&>> manage.out && \
+# python3 manage.py makemigrations StaticAnalyzer 2&>> manage.out && \
+# python3 manage.py migrate 2&>> manage.out
+
+python3 manage.py makemigrations && \
+python3 manage.py makemigrations StaticAnalyzer && \
+python3 manage.py migrate
+
 gunicorn -b 127.0.0.1:8000 "mobsf.MobSF.wsgi:application" --workers=1 --threads=10 --timeout=1800 &
 
 # Wait to start MobSF
