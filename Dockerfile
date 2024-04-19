@@ -16,6 +16,8 @@ RUN apt-get update -y && \
   apt-get install -y openjdk-8-jdk && \
   apt-get install -y curl jq
 
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+RUN export JAVA_HOME
 
 # USER mobsf
 COPY LICENSE README.md /
