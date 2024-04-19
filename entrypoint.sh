@@ -64,15 +64,15 @@ echo "[/api/v1/scan] Scan finisehd"
 sleep 5
 
 
-# # Generate the json report.
-# echo "[/api/v1/report_json] Generate the json report"
-# curl -X POST --url ${MOBSF_URL}/api/v1/report_json --data "hash=${HASH}" -H "Authorization:${MOBSF_API_KEY}" --output ${OUTPUT_FILE_NAME}.json
-# echo "[/api/v1/report_json] JSON report generated"
+# Generate the json report.
+echo "[/api/v1/report_json] Generate the json report"
+curl -X POST --url ${MOBSF_URL}/api/v1/report_json --data "hash=${HASH}" -H "Authorization:${MOBSF_API_KEY}" --output ${OUTPUT_FILE_NAME}.json
+echo "[/api/v1/report_json] JSON report generated"
 
 # Generate the pdf report.
-echo "[/api/v1/download_pdf] Generate the PDF report"
-curl -X POST --url ${MOBSF_URL}/api/v1/download_pdf --data "hash=${HASH}" -H "Authorization:${MOBSF_API_KEY}" --output ${OUTPUT_FILE_NAME}.pdf
-echo "[/api/v1/download_pdf] PDF report generated"
+# echo "[/api/v1/download_pdf] Generate the PDF report"
+# curl -X POST --url ${MOBSF_URL}/api/v1/download_pdf --data "hash=${HASH}" -H "Authorization:${MOBSF_API_KEY}" --output ${OUTPUT_FILE_NAME}.pdf
+# echo "[/api/v1/download_pdf] PDF report generated"
 
 # Remove analysis from MobSF server.
 # echo "[/api/v1/delete_scan] Remove analysis from MobSF server"
