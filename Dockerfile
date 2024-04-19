@@ -13,7 +13,9 @@ LABEL com.github.actions.color="gray-dark"
 
 USER root
 RUN apt-get update -y && \
+  apt-get install -y openjdk-8-jdk && \
   apt-get install -y curl jq
+
 
 # USER mobsf
 COPY LICENSE README.md /
