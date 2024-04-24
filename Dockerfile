@@ -1,7 +1,10 @@
+CMD ["/bin/echo", "Hello 1"]
+
+
 # FROM opensecurity/mobile-security-framework-mobsf:v3.4.3
 FROM opensecurity/mobile-security-framework-mobsf:v3.9.7
 
-CMD ["/bin/echo", "Hello"]
+CMD ["/bin/echo", "Hello 2"]
 
 LABEL version="1.7.2"
 LABEL repository="https://github.com/fundacaocerti/mobsf-action"
