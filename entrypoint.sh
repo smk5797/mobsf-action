@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "START entrypoint.sh"
+
 set -e
 
 cd $GITHUB_WORKSPACE
