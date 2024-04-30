@@ -12,6 +12,7 @@ This Action for [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF
 
 To build a Flutter project with MobSF Analysis:
 
+### Flutter - AOS
 ```yaml
 name: Build and Deploy
 on:
@@ -63,6 +64,7 @@ jobs:
           name: mobsf-report.json
           path: mobsf-report.json
 ```
+### Android - Gradle
 ```
 name: Android CI
 on:
